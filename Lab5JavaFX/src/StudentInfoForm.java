@@ -31,12 +31,12 @@ public class StudentInfoForm extends Application {
 
         // several dropdown list for department
         ComboBox<String> deptComboBox = new ComboBox<>();
-        deptComboBox.getItems().addAll("CS", "Math", "Physics", "Admin");
+        deptComboBox.getItems().addAll("CS", "Math", "Physics", "Chemistry", "Biology");
         deptComboBox.setMaxWidth(Double.MAX_VALUE);
 
         // choice box for study year
         ChoiceBox<String> yearChoiceBox = new ChoiceBox<>();
-        yearChoiceBox.getItems().addAll("1", "2", "3");
+        yearChoiceBox.getItems().addAll("1", "2", "3","4");
         yearChoiceBox.setMaxWidth(Double.MAX_VALUE);
 
         GridPane grid = new GridPane(); // arrange the form in rows and columns
