@@ -20,7 +20,6 @@ public class ToDoListApp extends Application {
     private int editingIndex = -1;
 
     // PART 3 EXTENSION 1: Task class to store name + timestamps
-    // Task class to store name + timestamps
     static class Task {
         String name, addedTime, completedTime;
         boolean completed = false;
@@ -31,9 +30,11 @@ public class ToDoListApp extends Application {
         }
 
         public String toString() {
-            if (completed)
+            if (completed){
                 return "[Completed] " + name + " (Added: " + addedTime + ") (Done: " + completedTime + ")";
-            return name + " (Added: " + addedTime + ")";
+            } else {
+                return name + " (Added: " + addedTime + ")";
+            }
         }
     }
 
@@ -136,7 +137,7 @@ public class ToDoListApp extends Application {
         filterBox.setOnAction(e -> {
             String selected = filterBox.getValue();
             if (selected.equals("Completed")) {
-                filteredList.setPredicate(t -> t.completed);
+                filteredList.setPredicate(t -> t.completed); // setPredicate filters the list based on condition
             } else if (selected.equals("Pending")) {
                 filteredList.setPredicate(t -> !t.completed);
             } else {
@@ -147,7 +148,7 @@ public class ToDoListApp extends Application {
         // 2.4 STRIKETHROUGH + PART 3 EXTENSION 1 (colors) + EXTENSION 3 (drag and drop)
         listView.setCellFactory(param -> new ListCell<Task>() {
             {
-                // DRAG DETECTED: store index
+                // detected drag or not
                 setOnDragDetected(e -> {
                     if (getItem() == null) return;
                     Dragboard db = startDragAndDrop(TransferMode.MOVE);
@@ -157,14 +158,14 @@ public class ToDoListApp extends Application {
                     e.consume();
                 });
 
-                // DRAG OVER: allow drop
+                // allow drop
                 setOnDragOver(e -> {
                     if (e.getGestureSource() != this && e.getDragboard().hasString())
                         e.acceptTransferModes(TransferMode.MOVE);
                     e.consume();
                 });
 
-                // DRAG DROPPED: swap positions
+                // swap positions
                 setOnDragDropped(e -> {
                     int from = Integer.parseInt(e.getDragboard().getString());
                     int to   = getIndex();
@@ -188,7 +189,6 @@ public class ToDoListApp extends Application {
                 } else {
                     TextFlow textFlow = new TextFlow();
                     Text text = new Text(task.toString()); // uses Task's toString() with timestamps
-
 
                     if (task.completed) {
                         text.setStyle("-fx-strikethrough: true;"); // strikethrough for completed
