@@ -56,8 +56,7 @@ public class ToDoListApp extends Application {
         Button removeButton = new Button("Remove Selected");
         Button completeButton = new Button("Mark Completed");
 
-        // PART 3 EXTENSION 2: Filter dropdown
-        // Filter dropdown
+        // PART 3 EXTENSION 2: filter dropdown
         ComboBox<String> filterBox = new ComboBox<>();
         filterBox.getItems().addAll("All Tasks", "Completed", "Pending");
         filterBox.setValue("All Tasks");
@@ -151,10 +150,10 @@ public class ToDoListApp extends Application {
                 // detected drag or not
                 setOnDragDetected(e -> {
                     if (getItem() == null) return;
-                    Dragboard db = startDragAndDrop(TransferMode.MOVE);
+                    Dragboard dragboard = startDragAndDrop(TransferMode.MOVE);
                     ClipboardContent c = new ClipboardContent();
                     c.putString(String.valueOf(getIndex()));
-                    db.setContent(c);
+                    dragboard.setContent(c);
                     e.consume();
                 });
 
