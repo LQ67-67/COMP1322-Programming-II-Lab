@@ -79,7 +79,7 @@ public class ToDoListApp extends Application {
         // 2.1 ADD TASK (same logic, now creates Task object)
         addButton.setOnAction(e -> {
             String taskName = taskInput.getText().trim();
-            boolean duplicate = taskList.stream().anyMatch(t -> t.name.equals(taskName)); // check duplicate
+            boolean duplicate = taskList.stream().anyMatch(t -> t.name.equals(taskName)); // stream() used for checking duplicate tasks
             if (!taskName.isEmpty() && !duplicate) {
                 taskList.add(new Task(taskName));  // create Task object with timestamp
                 taskInput.clear();
@@ -92,7 +92,7 @@ public class ToDoListApp extends Application {
             if (selectedIndex >= 0) {
                 Task selectedTask = filteredList.get(selectedIndex);
                 editingIndex = taskList.indexOf(selectedTask); // find index in master list
-                taskInput.setText(selectedTask.name);          // load task name into input
+                taskInput.setText(selectedTask.name); // load task name into input
             }
         });
 
@@ -101,11 +101,11 @@ public class ToDoListApp extends Application {
             if (editingIndex >= 0) {
                 String newName = taskInput.getText().trim();
                 if (!newName.isEmpty()) {
-                    taskList.get(editingIndex).name = newName;  // update name
+                    taskList.get(editingIndex).name = newName; // update name
                     Task temp = taskList.get(editingIndex);
-                    taskList.set(editingIndex, temp);           // trigger UI refresh
+                    taskList.set(editingIndex, temp); // trigger UI refresh
                     taskInput.clear();
-                    editingIndex = -1;
+                    editingIndex = -1; // reset editing index
                 }
             }
         });
@@ -150,7 +150,7 @@ public class ToDoListApp extends Application {
                 // detected drag or not
                 setOnDragDetected(e -> {
                     if (getItem() == null) return;
-                    Dragboard dragboard = startDragAndDrop(TransferMode.MOVE);
+                    Dragboard dragboard = startDragAndDrop(TransferMode.MOVE); // start drag and drop with MOVE mode
                     ClipboardContent c = new ClipboardContent();
                     c.putString(String.valueOf(getIndex()));
                     dragboard.setContent(c);
@@ -159,9 +159,7 @@ public class ToDoListApp extends Application {
 
                 // allow drop
                 setOnDragOver(e -> {
-                    if (e.getGestureSource() != this && e.getDragboard().hasString())
-                        e.acceptTransferModes(TransferMode.MOVE);
-                    e.consume();
+                    if (e.getGestureSource() != this && e.getDragboard().hasString()) e.acceptTransferModes(TransferMode.MOVE);e.consume();
                 });
 
                 // swap positions
