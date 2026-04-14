@@ -22,7 +22,6 @@ public class BinaryTreeSumFiltered {
     public int sumFiltered(TreeNode root, boolean sumEven, AtomicInteger sum)
             throws InvalidTreeNodeException {
 
-
         if (root == null) {
             return 0; // if nodes found
         }
@@ -30,9 +29,7 @@ public class BinaryTreeSumFiltered {
             throw new InvalidTreeNodeException("Negative value: " + root.val); // if input is negative
         }
 
-
         int count = 0; // count of nodes at this level and below
-
 
         // check if node's value matches the filter condition
         boolean isEven = (root.val % 2 == 0);
@@ -41,11 +38,9 @@ public class BinaryTreeSumFiltered {
             count = 1; // matched
         }
 
-
         // recurse into left and right subtrees and add their match counts
         count += sumFiltered(root.left, sumEven, sum);
         count += sumFiltered(root.right, sumEven, sum);
-
 
         return count;
     }
@@ -53,7 +48,6 @@ public class BinaryTreeSumFiltered {
     public static void main(String[] args) {
         BinaryTreeSumFiltered bstf = new BinaryTreeSumFiltered();
         TreeNode tree = bstf.buildSampleTree();
-
 
         // test of even
         AtomicInteger evenSum = new AtomicInteger(0); // Shared accumulator
@@ -69,7 +63,7 @@ public class BinaryTreeSumFiltered {
             System.out.println("Filter error: " + e.getMessage());
         }
 
-        // test of odd
+        // if odd
         AtomicInteger oddSum = new AtomicInteger(0);
         try {
             int count = bstf.sumFiltered(tree, false, oddSum);
