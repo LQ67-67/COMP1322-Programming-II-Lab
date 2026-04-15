@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class PalindromeChecker {
     public boolean isPalindrome(String input) {
         String cleaned = input.replaceAll(" ", "").toLowerCase(); // remove spaces and convert to lowercase for fair comparison
@@ -17,8 +19,14 @@ public class PalindromeChecker {
     public static void main(String[] args) {
         PalindromeChecker checker = new PalindromeChecker();
 
-        System.out.println(checker.isPalindrome("Race car")); // true
-        System.out.println(checker.isPalindrome("Hello")); // false
-        System.out.println(checker.isPalindrome("Uosm msou"));
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string to check if it's a palindrome: ");
+        System.out.println();
+        String input = sc.nextLine();
+        if (checker.isPalindrome(input)) {
+            System.out.println("The palindrome is a palindrome.");
+        } else {
+            System.out.println("The palindrome is not a palindrome.");
+        }
     }
 }
