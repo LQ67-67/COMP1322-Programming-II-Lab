@@ -11,7 +11,7 @@ public class PalindromeChecker {
             return true;  // if left has passed right, all characters matched → it's a palindrome
         }
         if (s.charAt(left) != s.charAt(right)) {
-            return false; // If the characters at both ends don't match → not a palindrome
+            return false; // if the characters at both ends don't match → not a palindrome
         }
         return checkPalindrome(s, left + 1, right - 1); // move both pointers inward and check the next pair
     }
