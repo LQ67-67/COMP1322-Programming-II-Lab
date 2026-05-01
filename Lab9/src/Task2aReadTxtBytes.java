@@ -1,5 +1,5 @@
-import java.io.BufferedInputStream;  // BufferedInputStream adds mark/reset support to byte streams
-import java.io.FileInputStream;      // FileInputStream opens a file as raw bytes
+import java.io.BufferedInputStream;  // add mark/reset support to byte streams
+import java.io.FileInputStream; // open a file as raw bytes
 
 public class Task2aReadTxtBytes {
     public static void main(String[] args) {
@@ -27,8 +27,6 @@ public class Task2aReadTxtBytes {
             byte[] after_reset = new byte[5];
             bis.read(after_reset);
             System.out.println("5 bytes after reset: " + new String(after_reset)); // reset back to the marked position and re-read the same 5 bytes
-
-            // Step 8: Stream closed automatically by try-with-resources
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
