@@ -1,0 +1,25 @@
+# IDE
+.idea/
+
+# Build outputs
+out/
+target/
+*.class
+
+# IntelliJ
+*.iml
+
+# macOS
+.DS_Store
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Zip files
+*.zip
+
+# Logs
+*.pdf
+
