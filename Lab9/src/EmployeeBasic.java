@@ -9,7 +9,6 @@ public class EmployeeBasic implements Serializable {
     private double salary;
     private String department;  // save above files when serialized
 
-    // transient means this field is EXCLUDED from serialization (password is private)
     private transient String password;
 
     //creates employeeBasic
@@ -39,8 +38,6 @@ public class EmployeeBasic implements Serializable {
 
     @Override
     public String toString() {
-        return "EmployeeBasic | Name: " + name + " | ID: " + id +
-                " | Salary: " + salary + " | Dept: " + department +
-                " | Password: " + (password == null ? "[hidden after load]" : password);
+        return "EmployeeBasic | Name: " + name + " | ID: " + id + " | Salary: " + salary + " | Dept: " + department + " | Password: " + (password == null ? "[hidden after load]" : password);
     }
 }

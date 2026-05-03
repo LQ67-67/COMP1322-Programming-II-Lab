@@ -4,16 +4,13 @@ import java.io.ObjectInput;
 import java.io.IOException;
 
 public class EmployeeAdvanced implements Externalizable {
-
     private String name;
     private int id;
     private double salary;
     private String department;
     private String password;
 
-    // create an empty object before calling readExternal()
-    public EmployeeAdvanced() {
-    }
+    public EmployeeAdvanced(){}  // create an empty object before calling readExternal()
 
     public EmployeeAdvanced(String name, int id, double salary, String department, String password) {
         this.name = name;
@@ -57,8 +54,6 @@ public class EmployeeAdvanced implements Externalizable {
 
     @Override
     public String toString() {
-        return "EmployeeAdvanced | Name: " + name + " | ID: " + id +
-                " | Salary: " + salary + " | Dept: " + department +
-                " | Password: [not saved by Externalizable]";
+        return "EmployeeAdvanced | Name: " + name + " | ID: " + id + " | Salary: " + salary + " | Dept: " + department + " | Password: [not saved by Externalizable]";
     }
 }

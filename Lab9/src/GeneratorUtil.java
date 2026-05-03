@@ -1,13 +1,11 @@
 import java.util.Random;
 
 public class GeneratorUtil {
-
     private static Random random = new Random();  // random object shared by all methods
 
     private static char[] consonants = "bcdfghjklmnpqrstvwxyz".toCharArray();
     private static char[] vowels = "aeiou".toCharArray();
-
-    private static String[] departments = {"IT", "HR", "Developer", "Stores", "Finance", "Non-IT", "Admin"}; // departments
+    private static String[] departments = {"IT", "HR", "Developer", "Stores", "Finance", "Non-IT", "Admin"};
 
     public static String randomName() {
         char c1 = consonants[random.nextInt(consonants.length)];
@@ -27,7 +25,7 @@ public class GeneratorUtil {
                 id += evens[random.nextInt(evens.length)]; // odd position become even digit
             }
         }
-        return Integer.parseInt(id);  // convert string to int
+        return Integer.parseInt(id); // convert string to int
     }
 
     public static double randomSalary() {
@@ -35,14 +33,14 @@ public class GeneratorUtil {
     }
 
     public static String randomDepartment() {
-        return departments[random.nextInt(departments.length)];  // pick a random department
+        return departments[random.nextInt(departments.length)]; // pick a random department
     }
 
     public static String randomPassword() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         String password = "";
         for (int i = 0; i < 8; i++) {
-            password += chars.charAt(random.nextInt(chars.length())); // pick one random character
+            password += chars.charAt(random.nextInt(chars.length())); // pick a random character
         }
         return password; // generate random 8 character password
     }

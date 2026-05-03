@@ -1,0 +1,16 @@
+Name: Yik | ID: 521478 | Dept: Stores | Type: Serializable
+Name: Zef | ID: 761656 | Dept: IT | Type: Serializable
+Name: Qiy | ID: 327258 | Dept: IT | Type: Serializable
+Name: Saw | ID: 701210 | Dept: HR | Type: Serializable
+Name: Tuq | ID: 961034 | Dept: Admin | Type: Serializable
+Name: Pan | ID: 909036 | Dept: IT | Type: Serializable
+Name: Cav | ID: 907010 | Dept: HR | Type: Serializable
+Name: Dix | ID: 561612 | Dept: Non-IT | Type: Serializable
+Name: Yik | ID: 521478 | Dept: Stores | Type: Externalizable
+Name: Zef | ID: 761656 | Dept: IT | Type: Externalizable
+Name: Qiy | ID: 327258 | Dept: IT | Type: Externalizable
+Name: Saw | ID: 701210 | Dept: HR | Type: Externalizable
+Name: Tuq | ID: 961034 | Dept: Admin | Type: Externalizable
+Name: Pan | ID: 909036 | Dept: IT | Type: Externalizable
+Name: Cav | ID: 907010 | Dept: HR | Type: Externalizable
+Name: Dix | ID: 561612 | Dept: Non-IT | Type: Externalizable

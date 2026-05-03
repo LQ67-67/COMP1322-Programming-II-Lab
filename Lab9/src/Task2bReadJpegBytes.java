@@ -19,11 +19,11 @@ public class Task2bReadJpegBytes {
                 System.out.print(b + " ");  // print each byte as a number
             }
             System.out.println();
-            System.out.println("Next 10 bytes as text (garbled): " + new String(buffer)); // print as text will show garbage
+            System.out.println("Next 10 bytes as text (garbled): " + new String(buffer));
 
             System.out.println("Mark supported: " + bis.markSupported()); // check mark support
             bis.mark(20); // remember this position
-            bis.skip(5); // skip 5 bytes
+            bis.skip(5);
 
             byte[] after_skip = new byte[5];
             bis.read(after_skip);

@@ -21,7 +21,7 @@ public class Task2aReadTxtBytes {
 
             byte[] after_skip = new byte[5];
             bis.read(after_skip);
-            System.out.println("5 bytes after skip: " + new String(after_skip)); // read next 5 bytes after the skip
+            System.out.println("5 bytes after skip: " + new String(after_skip)); // read next 5 bytes after skip
 
             bis.reset();
             byte[] after_reset = new byte[5];

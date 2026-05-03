@@ -5,33 +5,31 @@ public class Task3Main {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("How many employee records would you like to simulate? ");
-        System.out.println(" ");
-        int count = scanner.nextInt();  // read the number from the user
+        System.out.print("How many employee records would you like to simulate? (Enter a positive number): ");
+        int count = scanner.nextInt(); // read the number from the user
 
         List<EmployeeBasic> basicList = new ArrayList<>();
         List<EmployeeAdvanced> advancedList = new ArrayList<>(); // hold two types of employees
 
         for (int i = 0; i < count; i++) {
-            // generate random data for this employee
             String name = GeneratorUtil.randomName();
             int id = GeneratorUtil.randomId();
             double salary = GeneratorUtil.randomSalary();
             String dept = GeneratorUtil.randomDepartment();
-            String pass = GeneratorUtil.randomPassword();
+            String pass = GeneratorUtil.randomPassword(); // generate random data for this employee
 
             basicList.add(new EmployeeBasic(name, id, salary, dept, pass)); // add to basic list
             advancedList.add(new EmployeeAdvanced(name, id, salary, dept, pass)); // advanced list
         }
 
         ObjectOutputStream oos1 = new ObjectOutputStream(new FileOutputStream("basic_employees.ser"));
-        oos1.writeObject(basicList);  // write entire arrayList at once
+        oos1.writeObject(basicList); // write entire arrayList at once
         oos1.close();
         System.out.println("\nSaved basic_employees.ser");
 
         ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream("advanced_employees.dat"));
         for (EmployeeAdvanced emp : advancedList) {
-            oos2.writeObject(emp);   // write each objects one by one
+            oos2.writeObject(emp);  // write each objects one by one
         }
         oos2.close();
         System.out.println("Saved advanced_employees.dat");
